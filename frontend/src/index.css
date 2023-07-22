@@ -10,6 +10,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .content {
@@ -123,4 +124,43 @@
 
 .btn:hover {
   background: lightblue;
+}
+
+.disable {
+  cursor: auto;
+  opacity: 0.7;
+}
+
+.disable:hover {
+  background: #e6e9ed;
+}
+
+.filter__label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.filter__title {
+  font-size: 18px;
+  font-weight: 700
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 968px;
+  }
+
+  .flats__item {
+    width: 358px;
+  }
+}
+
+@media (max-width: 968px) {
+  .container {
+    max-width: 769px;
+  }
+
+  .flats__item {
+    width: 358px;
+  }
 }

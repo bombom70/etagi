@@ -16,7 +16,7 @@ export const FilterItem = ({ uniqKey, value, setFilter, keyName, setPage }) => {
   return (
     <div key={uniqKey}>
       <label>
-        <input onChange={handaleChange} type="checkbox" name={value} /> {value}
+        <input onChange={handaleChange} type="checkbox" name={value}/> {value}
       </label>
     </div>
   )

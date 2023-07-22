@@ -46,12 +46,16 @@ class FlatController {
     const areaKitchenParams = await db.query('SELECT area_kitchen, COUNT(*) FROM flats GROUP BY area_kitchen ORDER BY area_kitchen ASC;');
     const areaLiveParams = await db.query('SELECT area_live, COUNT(*) FROM flats GROUP BY area_live ORDER BY area_live ASC;');
     const resultParams = {
-      floor: floorParams.rows,
-      price: priceParams.rows,
-      rooms: roomsParams.rows,
-      "area_total": areaTotalParams.rows,
-      "area_kitchen": areaKitchenParams.rows,
-      "area_live": areaLiveParams.rows,
+      main: {
+        floor: floorParams.rows,
+        price: priceParams.rows,
+        rooms: roomsParams.rows,
+      },
+      additional: {
+        "area_total": areaTotalParams.rows,
+        "area_kitchen": areaKitchenParams.rows,
+        "area_live": areaLiveParams.rows,
+      }
     }
     res.json(resultParams)
   }

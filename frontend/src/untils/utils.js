@@ -3,7 +3,7 @@ export const translateWOrd = (word) => {
     case "floor":
       return "Этаж";
     case "price":
-      return "Цвена";
+      return "Цена";
     case "rooms":
       return "Колличество комнат";
     case "area_total":
