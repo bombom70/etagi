@@ -3,13 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { fetchFlatById } from '../network/flats';
 
 
-const fetchFlatById = async (id) => {
-  const { data } = await axios(`http://localhost:3001/api/flats/${id}`);
-
-  return data;
-}
 
 export const CurrentFlatPage = () => {
   const { id } = useParams();

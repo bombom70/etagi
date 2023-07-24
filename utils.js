@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const fastcsv = require("fast-csv");
-const pool = require('./db');
+const { db } = require('./db');
 
 function initDB() {
   const pathToFile = path.join(__dirname, 'flats_data.csv');
@@ -18,7 +18,7 @@ function initDB() {
       const query =
         "INSERT INTO flats (id, floor, pos_on_floor, price, rooms, area_total, area_kitchen, area_live, layout_image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)";
 
-      pool.connect((err, client, done) => {
+        db.connect((err, client, done) => {
         if (err) throw err;
         try {
           csvData.forEach(row => {
@@ -39,8 +39,8 @@ function initDB() {
   stream.pipe(csvStream);
 }
 
-async function isEmptyBD() {
-  const flats = await pool.query('SELECT * FROM flats');
+async function isEmptyBD(db) {
+  const flats = await db.query('SELECT * FROM flats');
   return flats.rows.length > 0 ? false : true;
 }
 

@@ -1,0 +1,1 @@
+export const FLATS_PER_PAGE = 8;

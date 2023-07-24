@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { MainPage } from './pages/MainPage';
-import { CurrentFlatPage } from './pages/CurrentFlatPage';
-import { NotFound } from './pages/NotFound';
+import React from 'react';
+import Router from './Router';
+import { ParsedQueryProvider } from './providers/parsedQuery';
 
 function App() {
   return (
+    <ParsedQueryProvider>
     <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage/>}></Route>
-          <Route path="flats/:id" element={<CurrentFlatPage/>}></Route>
-          <Route path="*" element={<NotFound/>}></Route>
-        </Routes>
+      <React.Suspense fallback={<div>loading...</div>}>
+        <Router/>
+      </React.Suspense>
     </div>
+    </ParsedQueryProvider>
   );
 }
 
