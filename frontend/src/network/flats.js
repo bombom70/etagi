@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const BASE_URL = "http://localhost:3001/api/flats";
-const BASE_URL = "http://localhost:51258/api/flats";
+const BASE_URL = "http://localhost:3001/api/flats";
 
 export const fetchFlats = async (params) => {
   const { data } = await axios(BASE_URL, {
